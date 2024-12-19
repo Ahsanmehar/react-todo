@@ -4,11 +4,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: aquamarine;
+  background-color: #212121;
 }
 
 ::selection {
-    background-color: #ff7676;
+  background-color: #ff7676;
 }
 
 #todolist {
@@ -103,19 +103,60 @@ main {
 }
 
 #newtodo li {
+  width: 100%;
   font-size: 16px;
   margin-left: 10px;
 }
 
 #icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #newtodo i {
   font-size: 24px;
   font-weight: 500;
   cursor: pointer;
+}
+
+#edit-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  gap: 10px;
+}
+
+#edit-input input {
+  width: 80%;
+  padding: 15px;
+  background-color: #ff7676;
+  outline: 1px solid rgba(255, 255, 255, 0.598);
+  caret-color: rgba(255, 255, 255, 0.598);
+  border: none;
+  color: white;
+}
+
+#edit-input input:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.598);
+  color: white;
+  border: none;
+}
+
+#edit-input input::placeholder {
+  color: white;
+}
+
+#edit-input button {
+  padding: 15px 30px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px rgba(255, 255, 255, 0.598) solid;
+  color: white;
+}
+
+#edit-input button:hover {
+  background-color: #f95858;
 }

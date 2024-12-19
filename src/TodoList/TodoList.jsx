@@ -7,18 +7,18 @@ function TodoList() {
     { task: "Sample Todo", id: uuidv4(), isDone: false },
   ]);
   let [newTodo, setNewTodo] = useState("");
-
-
+  let [error, setError] = useState(false);
 
   function handleClick() {
     if (newTodo.trim()) {
       setTodo((preval) => {
         return [...preval, { task: newTodo, id: uuidv4(), isDone: false }];
       });
+      setError(false);
+      setNewTodo("");
     } else {
-      console.log("hye");
+      setError(true);
     }
-    setNewTodo("");
   }
 
   function handleNew(e) {
@@ -100,16 +100,15 @@ function TodoList() {
     });
   }
 
-  let [edit, setEdit] = useState("");
+  let [edit, setEdit] = useState({});
 
-  
   function handleEdit(id) {
     setTodo((preval) => {
       return preval.map((todoedit) => {
         if (todoedit.id == id) {
           return {
             ...todoedit,
-            task: edit,
+            task: edit[id] || todoedit.task,
             isDone: false,
           };
         } else {
@@ -119,10 +118,9 @@ function TodoList() {
     });
   }
 
-  function handleNewEdit(e) {
-    setEdit(e.target.value);
+  function handleNewEdit(e, id) {
+    setEdit({ ...edit, [id]: e.target.value });
   }
-
 
   return (
     <main>
@@ -138,12 +136,12 @@ function TodoList() {
               <div id="newtodo" key={todo.id}>
                 <li>
                   {todo.isDone ? (
-                    <div>
+                    <div id="edit-input">
                       <input
                         type="text"
                         placeholder="Enter Edit Task"
-                        onChange={handleNewEdit}
-                        value={edit}
+                        onChange={(e) => handleNewEdit(e, todo.id)}
+                        value={edit[todo.id] || ""}
                       />
                       <button onClick={() => handleEdit(todo.id)}>Save</button>
                     </div>
@@ -191,6 +189,7 @@ function TodoList() {
           <button onClick={handleAllUppercase}>All UpperCase</button>
           <button onClick={handleAllLowercase}>All LowerCase</button>
         </div>
+        <p>{error ? "Please enter a valid task!" : ""}</p>
       </div>
     </main>
   );
