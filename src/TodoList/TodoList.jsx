@@ -185,9 +185,11 @@ function TodoList() {
             value={newTodo}
             onChange={handleNew}
           />
+          <div id="input-btn">
           <button onClick={handleClick}>Add Task</button>
           <button onClick={handleAllUppercase}>All UpperCase</button>
           <button onClick={handleAllLowercase}>All LowerCase</button>
+          </div>
         </div>
         <p>{error ? "Please enter a valid task!" : ""}</p>
       </div>

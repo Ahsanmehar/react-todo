@@ -43,7 +43,7 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
 }
 
 #input input {
@@ -63,6 +63,11 @@ main {
 }
 #input input::placeholder {
   color: white;
+}
+
+#input-btn {
+  display: flex;
+  gap: 10px;
 }
 
 #input button {
@@ -159,4 +164,55 @@ main {
 
 #edit-input button:hover {
   background-color: #f95858;
+}
+
+@media (max-width: 850px) {
+  #todolist {
+    min-width: 750px;
+  }
+}
+
+@media (max-width: 800px) {
+  #input {
+    flex-direction: column;
+  }
+
+  #input input {
+    width: 90%;
+  }
+
+  #todolist {
+    min-width: 600px;
+  }
+
+  #newtodo-box {
+    max-height: 228px;
+  }
+}
+
+@media (max-width: 614px) {
+  #todolist {
+    min-width: 393px;
+  }
+}
+
+@media (max-width: 400px) {
+  #todolist {
+    min-width: 300px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 350px) {
+  #input-btn {
+    flex-direction: column;
+  }
+
+  #icons {
+    gap: 5px;
+  }
+
+  #newtodo i {
+    font-size: 21px;
+  }
 }
