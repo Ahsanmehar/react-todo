@@ -201,12 +201,16 @@ main {
     min-width: 300px;
     max-width: 400px;
   }
-}
 
-@media (max-width: 350px) {
   #input-btn {
     flex-direction: column;
   }
+}
+
+@media (max-width: 350px) {
+  /* #input-btn {
+    flex-direction: column;
+  } */
 
   #icons {
     gap: 5px;
