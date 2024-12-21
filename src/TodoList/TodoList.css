@@ -93,7 +93,21 @@ main {
 }
 
 #newtodo-box::-webkit-scrollbar {
-  width: 20px;
+  width: 7px;
+}
+
+#newtodo-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+#newtodo-box::-webkit-scrollbar-thumb:hover {
+  background-color: white;
+}
+
+#newtodo-box::-webkit-scrollbar-track {
+  background: #ff7676;
+  border-radius: 10px;
 }
 
 #newtodo {
@@ -205,12 +219,6 @@ main {
   #input-btn {
     flex-direction: column;
   }
-}
-
-@media (max-width: 350px) {
-  /* #input-btn {
-    flex-direction: column;
-  } */
 
   #icons {
     gap: 5px;
